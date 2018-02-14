@@ -1,10 +1,11 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
 	counter: 0
 };
 
 const reducer = (state = initialState, action) => {
+	// eslint-disable-next-line
 	switch (action.type) {
 		case actionTypes.INCREMENT:
 			const newState = Object.assign({}, state);

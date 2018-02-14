@@ -1,0 +1,7 @@
+1. Add to Google Chrome
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+
+2. Npm install
+https://github.com/gaearon/redux-thunk
+
+npm install --save redux-thunk
