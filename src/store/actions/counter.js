@@ -1,9 +1,11 @@
 import * as actionTypes from "./actionTypes";
 
-// receive any payload
+// This increment is an action creator
+// receive any payload we pass with the action
 export const increment = () => {
   // return the actions
   return {
+    // it creates this INCREMENT action
     type: actionTypes.INCREMENT
   };
 };

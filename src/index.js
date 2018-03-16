@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+// combineReducers allows us to combine reducers
+// applyMiddleware allow us to add our middleware,
+// logger to the store.
+// compose is a default compose function provided by redux
+// and allow us to combine composers.
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+
+// thunk is a middleware
 import thunk from 'redux-thunk';
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
@@ -14,12 +21,24 @@ const rootReducer = combineReducers({
 	res: resultReducer
 });
 
+// Simple custom middleware that logs
+// each action we issue
 const logger = store => {
+	// Next is random name and this function 
+	// let the action to continue its journey to reducer
+	// This function will be executed by Redux
 	return next => {
+		// Here we can execute store, next and action
 		return action => {
 			console.log('[Middleware] Dispatching action', action);
+			// This will let the action continue to the reducer
+			// and to succed we need to pass the action as argument
 			const result = next(action);
-			console.log('[Middleware] Next state', store.getState());
+			//  getState is passed by redux thunk
+			// so getState gets the current state
+			// Next state is the updated state and 
+			// is happening for every action we dispatch
+			console.log('[Middleware] Next state getState()', store.getState());
 			return result;
 		}
 	}
